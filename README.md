@@ -1,43 +1,34 @@
-MAG-TV v2 - skin para Enigma2 (OpenATV 6.x), 1280x720
+# MAG-TV v2 – Enigma2 Skin (OpenATV 6.x), 1280x720
 ====================================================
 
-Mesmo aspeto do e2player / TVH Player:
-  - Lista de canais com pre-visualizacao do video, picon, programa atual,
-    progresso, "a seguir" e descricao do canal selecionado.
-  - Barra de informacao com numero, picon, nome, agora / a seguir, progresso,
-    minutos que faltam e relogio (fundo 30% transparente).
-  - Segunda barra (INFO duas vezes) com a descricao completa.
-  - Restantes janelas (menus, configuracoes, EPG...) com a mesma paleta de cores.
+Same look and feel as e2player / TVH Player:
 
-CONTEUDO
-  usr/share/enigma2/MAG-TV/                  skin, letras (DejaVu) e molduras
-  usr/lib/enigma2/python/Components/Converter/MagInfo.py
-                                             conversor do skin (numero do canal,
-                                             horario, minutos restantes, a seguir)
+- Channel list with video preview, picon, current programme, progress bar, "Next" programme and description of the selected channel.
+- Information bar showing channel number, picon, name, now / next, progress bar, remaining minutes and clock (30% transparent background).
+- Second information bar (press INFO twice) displaying the full programme description.
+- All other windows (menus, settings, EPG, etc.) use the same colour palette.
 
-INSTALACAO (por SSH/Telnet, ex. PuTTY)
-  1. Copia o ficheiro mag-tv-skin.tar.gz para /tmp da box (FTP, utilizador root).
-  2. Na box:
-        tar -xzf /tmp/mag-tv-skin.tar.gz -C /
-  3. Menu > Configuracao > Sistema > Skin (Interface de utilizador) > escolhe "MAG-TV"
-     e aceita reiniciar a interface.
+## CONTENTS
 
-  Sem SSH: copia por FTP as pastas  usr/share/enigma2/MAG-TV  e o ficheiro
-  MagInfo.py para os mesmos caminhos na box, e depois escolhe o skin no menu.
+`usr/share/enigma2/MAG-TV/`  
+Skin, fonts (DejaVu) and frames.
 
-SE A INTERFACE NAO ARRANCAR (recuperacao, por SSH/Telnet)
-        init 4
-        sed -i '/config.skin.primary_skin/d' /etc/enigma2/settings
-        init 3
-  A box volta ao skin original.
+`usr/lib/enigma2/python/Components/Converter/MagInfo.py`  
+Skin converter (channel number, time, remaining minutes and next programme).
 
-PERSONALIZAR
-  - Transparencia da barra de informacao: em skin.xml, cor "ib_bg"
-    (#00131924 opaca, #33... 20%, #4d... 30%, #66... 40%, #80... 50%).
-  - Numero de canais visiveis na lista: serviceItemHeight (40 = 16 linhas).
+## INSTALLATION (via SSH/Telnet, e.g. PuTTY)
 
-LIMITACOES
-  - A lista de grupos (bouquets) nao fica sempre visivel ao lado dos canais como na
-    app: no Enigma2 a lista de bouquets abre-se com a tecla de bouquets/esquerda.
-  - A barra de progresso dentro da lista segue a opcao do OpenATV
-    "mostrar progresso do evento na lista de canais".
+1. Copy the `mag-tv-skin.tar.gz` file to `/tmp` on your receiver (via FTP, using the root user).
+2. On the receiver, run:
+
+   ```bash
+   tar -xzf /tmp/mag-tv-skin.tar.gz -C /
+   ```
+
+3. Go to **Menu > Setup > System > Skin (User Interface)**, select **"MAG-TV"** and confirm the GUI restart.
+
+**Without SSH:** Copy the `usr/share/enigma2/MAG-TV` folder and the `MagInfo.py` file via FTP to the corresponding paths on your receiver, then select the skin from the menu.
+
+## IF THE INTERFACE FAILS TO START (RECOVERY VIA SSH/TELNET)
+
+Run the following commands
