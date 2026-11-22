@@ -31,4 +31,28 @@ Skin converter (channel number, time, remaining minutes and next programme).
 
 ## IF THE INTERFACE FAILS TO START (RECOVERY VIA SSH/TELNET)
 
-Run the following commands
+Run the following commands:
+
+```bash
+init 4
+sed -i '/config.skin.primary_skin/d' /etc/enigma2/settings
+init 3
+```
+
+The receiver will revert to its original skin.
+
+## CUSTOMIZATION
+
+- **Information bar transparency:** In `skin.xml`, edit the `ib_bg` colour value:
+  - `#00131924` – opaque
+  - `#33...` – 20%
+  - `#4d...` – 30%
+  - `#66...` – 40%
+  - `#80...` – 50%
+
+- **Number of visible channels in the list:** Adjust `serviceItemHeight` (40 = 16 rows).
+
+## LIMITATIONS
+
+- The bouquet/group list cannot remain permanently visible alongside the channels, as it does in the app. In Enigma2, the bouquet list is opened using the bouquet/left key.
+- The progress bar within the channel list follows the OpenATV setting: **"Show event progress in channel list"**.
